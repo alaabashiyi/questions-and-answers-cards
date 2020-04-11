@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>FQA</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <h1 class="title">Questions and Answers</h1>
+      <button class="add-question-btn" id="add-question-btn">
+        Add Question
+      </button>
+      <div class="questions-container" id="questions-container">
+        <div class="question" id="1000">
+          <span class="question-title"
+            >This is an example question => Click Show Answer Below</span
+          >
+          <label id="show-answer">Show/Hide Answer</label>
+          <p class="answer" id="answer">CLICK DELETE TO DELETE ME</p>
+
+          <div class="btns-container">
+            <button class="edit" id="edit">Edit</button
+            ><button class="delete" id="delete">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" id="overlay">
+      <div class="question-modal">
+        <form class="form-area">
+          <label>Question</label>
+          <textarea
+            name="question"
+            id="added-question"
+            cols="68"
+            rows="6"
+          ></textarea>
+          <label>Answer</label>
+          <textarea
+            name="question"
+            id="added-answer"
+            cols="68"
+            rows="6"
+          ></textarea>
+        </form>
+        <button class="save" id="save">Save</button>
+        <button class="close" id="close">X</button>
+      </div>
+    </div>
+
+    <div class="edit-overlay" id="edit-overlay">
+      <div class="edit-question-modal">
+        <form class="form-area">
+          <label>Question</label>
+          <textarea
+            name="question"
+            id="editted-question"
+            cols="68"
+            rows="6"
+          ></textarea>
+          <label>Answer</label>
+          <textarea
+            name="question"
+            id="editted-answer"
+            cols="68"
+            rows="6"
+          ></textarea>
+        </form>
+        <button class="save-edit" id="save-edit">Save</button>
+        <button class="close-edit" id="close-edit">X</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

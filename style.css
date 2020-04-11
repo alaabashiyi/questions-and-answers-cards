@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(180, 16%, 76%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+.container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: #fff;
+  margin: 20px 20px;
+  text-align: center;
+}
+
+.add-question-btn {
+  background: transparent;
+  border: 2px solid rgba(30, 243, 11, 0.4);
+  border-radius: 5px;
+  padding: 10px;
+  width: 160px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.questions-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-items: flex-sta    rt; */
+  justify-content: space-evenly;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: rgba(0, 0, 0, 0.9);
+  box-shadow: 2px 10px 15px rgba(0, 0, 0, 0.4);
+  margin: 20px 20px;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.question span {
+  width: 100%;
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.question label {
+  width: 100%;
+  display: block;
+  margin: 10px 0;
+  color: #004887;
+  cursor: pointer;
+}
+
+.question label:active {
+  transform: rotateX(360deg);
+  transition: 0.3s;
+}
+
+.question p {
+  display: none;
+  width: 100%;
+  margin: 10px 0;
+  color: #000;
+}
+
+.question p.show-answer {
+  display: block;
+}
+
+.btns-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.btns-container button.delete {
+  background: transparent;
+  border: 2px solid rgba(255, 0, 0, 0.9);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.btns-container button.edit {
+  background: transparent;
+  border: 2px solid rgba(30, 153, 26, 0.9);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 0;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 150;
+  animation-name: modalopen;
+  animation-duration: 3s;
+}
+
+.question-modal {
+  padding: 20px;
+  background-color: #fff;
+  position: relative;
+  width: 540px;
+  border-radius: 15px;
+}
+
+.question-modal label {
+  display: block;
+  margin: 10px;
+  color: #002;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.question-modal textarea {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+.question-modal button.save {
+  background: transparent;
+  border: 2px solid rgba(3, 105, 153, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  width: 160px;
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.4);
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.question-modal button.close {
+  position: absolute;
+  font-size: 16px;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: 2px solid rgba(255, 0, 0, 0.9);
+  border-radius: 5px;
+  padding: 5px 5px;
+  line-height: 60%;
+}
+
+/* EDIT OVERLAY AHEAD*/
+
+.edit-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 150;
+  animation-name: modalopen;
+  animation-duration: 3s;
+}
+
+.edit-question-modal {
+  padding: 20px;
+  background-color: #fff;
+  position: relative;
+  width: 540px;
+  border-radius: 15px;
+}
+
+.edit-question-modal label {
+  display: block;
+  margin: 10px;
+  color: #002;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.edit-question-modal textarea {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+.edit-question-modal button.save-edit {
+  background: transparent;
+  border: 2px solid rgba(3, 105, 153, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  width: 160px;
+  box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.4);
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.edit-question-modal button.close-edit {
+  position: absolute;
+  font-size: 16px;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: 2px solid rgba(255, 0, 0, 0.9);
+  border-radius: 5px;
+  padding: 5px 5px;
+  line-height: 60%;
+}
+
+@media (max-width: 700px) {
+  .question-modal {
+    width: 340px;
+  }
+
+  .edit-question-modal {
+    width: 340px;
+  }
+}
